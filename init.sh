@@ -24,3 +24,11 @@ sudo pkill -f gunicorn
 sudo gunicorn -c /home/box/web/etc/gunicorn_hello.py hello:application &
 sudo gunicorn -c /home/box/web/etc/gunicorn_ask.py ask.wsgi:application &
 
+# MuSQL
+sudo pip install mysqlclient
+sudo service mysql restart
+
+sudo mysql -uroot -e "CREATE DATABASE qa CHARACTER SET utf8 COLLATE utf8_general_ci;"
+sudo mysql -uroot -e "GRANT ALL PRIVILEGES ON qa.* TO 'admin'@'localhost' IDENTIFIED BY 'pass111';"
+
+
